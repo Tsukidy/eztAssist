@@ -1,2 +1,2 @@
 Invoke-WebRequest -Uri "https://customdesignservice.teamviewer.com/download/windows/v15/6a6jvxf/TeamViewerQS.exe?sv=2023-11-03&se=2026-02-11T21%3A42%3A55Z&sr=b&sp=r&sig=r%2B5W0uhNqjjTFKXLtjdh1kt8NOyR2F%2BGmC%2FJMlpdDz4%3D" -OutFile "$env:TEMP\TeamViewerQS.exe"
-Start-Process -FilePath "$env:TEMP\TeamViewerQS.exe"
+Start-Process -FilePath "$env:TEMP\TeamViewerQS.exe" -verb RunAs
