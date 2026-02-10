@@ -1,7 +1,8 @@
 Add-Type -AssemblyName System.Windows.Forms
-
+$url = "https://customdesignservice.teamviewer.com/download/windows/v15/6a6jvxf/TeamViewerQS.exe?sv=2023-11-03&se=2026-02-11T21%3A42%3A55Z&sr=b&sp=r&sig=r%2B5W0uhNqjjTFKXLtjdh1kt8NOyR2F%2BGmC%2FJMlpdDz4%3D"
+$fileName = "TeamViewerQS.exe"
 try {
-    Invoke-WebRequest -Uri "https://customdesignservice.teamviewer.com/download/windows/v15/6a6jvxf/TeamViewerQS.exe?sv=2023-11-03&se=2026-02-11T21%3A42%3A55Z&sr=b&sp=r&sig=r%2B5W0uhNqjjTFKXLtjdh1kt8NOyR2F%2BGmC%2FJMlpdDz4%3D" -OutFile "$env:TEMP\TeamViewerQS.exe"
+    (New-Object System.Net.WebClient).DownloadFile($url, "$env:TEMP\$fileName")
 }
 catch {
     <#Do this if a terminating exception happens#>
@@ -13,7 +14,7 @@ catch {
     ) | Out-Null
 }
 try {
-    Start-Process -FilePath "$env:TEMP\TeamViewerQS.exe" -verb RunAs
+    Start-Process -FilePath "$env:TEMP\$fileName" -verb RunAs
 }
 catch {
     <#Do this if a terminating exception happens#>
